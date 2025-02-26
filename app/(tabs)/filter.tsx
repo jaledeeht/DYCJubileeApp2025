@@ -10,6 +10,7 @@ import { Image } from "expo-image";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
+import RNImageTools from 'react-native-image-tools-wm';
 
 export default function App() {
   const [permission, requestPermission] = useCameraPermissions();
@@ -61,6 +62,9 @@ export default function App() {
 
   const renderPicture = () => {
     return (
+      RNImageTools.merge([uri,image]).then(({ uri, width, height }) => {
+      // Sync with your app state
+    }).catch(console.error);
       <View> 
         <Image
           source={{ uri }}
